@@ -23,8 +23,7 @@ app.use(express.static(path.join(__dirname,'public')));
 
 app.use('/api/myjourn',notesRouter);
 app.use('/api/record',recordRouter);
-app.use('/api/delete/:index',deleteRouter)
-
+app.use('/api/delete/',deleteRouter)
 
 
 

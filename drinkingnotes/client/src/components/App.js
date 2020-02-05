@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Home from './Home';
 import MyJourn from './MyJourn'
 import Record from './Records'
+import UpJourn from './upJourn'
 
 
 class App extends Component{
@@ -15,6 +16,7 @@ class App extends Component{
                     <Route exact path="/" component={Home} />
                     <Route path= "/myjourn" component={MyJourn}/>
                     <Route path = "/record" component = {Record} />
+                    <Route path = "/update" component = {UpJourn} />
                 </div>
             </Router>
         )
