@@ -18,7 +18,7 @@ const client = new Client({
 
 client.connect()
     .then(()=>{
-        console.log('Connected to postgres database.')
+        console.log('Connected to postgres database for Post.')
     })
     .catch((err)=>{
         console.log(`Connection error: ${err.stack}`)

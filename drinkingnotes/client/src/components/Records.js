@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom'
 import tearecord from './apis/tearecord'
 
 
@@ -7,25 +8,17 @@ class Record extends Component{
 
     state = {teaList:[]}
 
-    onEditHandler = (tea) =>{
-        this.props.history.push("/update")
-        let idx = this.state.teaList.findIndex(x => x.primary_key === tea.tea.primary_key)
-
-        let index = idx + 1    
-
-    }
+    
 
     onClickHandler  = () =>{
         this.props.history.push("/myjourn")
     }
 
     onDeleteHandler = (tea) =>{
-        let idx = this.state.teaList.findIndex(x => x.primary_key === tea.tea.primary_key)
-
-        let index = idx + 1    
-
+        
+       console.log(tea) 
        
-        tearecord.delete(`delete/${index}`)
+        tearecord.delete(`delete/${tea}`)
             .then(res => {
                 console.log(res.data);
             }).catch(ex => {
@@ -35,6 +28,15 @@ class Record extends Component{
 
 
     }
+
+    onEditHandler = (tea) => (
+        
+        
+        
+        <Link to = "/update"></Link>
+
+
+    )
 
      
   
@@ -74,9 +76,9 @@ class Record extends Component{
                    </div>
                    <div className="ui two wide colum"> 
                     <div className="ui large buttons">
-                        <button className ="ui button right floated colum">Edit</button>
+                        <button onClick ={() => {this.onEditHandler(tea.primary_key)}}className ="ui button right floated colum">Edit</button>
                         <div className ="or"></div>
-                        <button onClick={() => this.onDeleteHandler({tea})} className="ui button right floated colum">Delete</button>
+                        <button onClick={() => this.onDeleteHandler(tea.primary_key)} className="ui button right floated colum">Delete</button>
                   </div>
                 </div>
 

@@ -4,8 +4,9 @@ const path = require('path');
 const logger =  require('morgan')
 
 var notesRouter = require('./routes/myjourn');
-var recordRouter = require('./routes/record')
-var deleteRouter = require('./routes/deletion')
+var recordRouter = require('./routes/record');
+var deleteRouter = require('./routes/deletion');
+// var updateRouter = require('./routes/updateRecords');
 
 
 var app = express();
@@ -23,7 +24,8 @@ app.use(express.static(path.join(__dirname,'public')));
 
 app.use('/api/myjourn',notesRouter);
 app.use('/api/record',recordRouter);
-app.use('/api/delete/',deleteRouter)
+app.use('/api/delete/',deleteRouter);
+// app.use('/api/update/',updateRouter);
 
 
 

@@ -14,5 +14,21 @@ const client = new Client({
     port:'5432'
 });
 
+client.connect()
+    .then(()=>{
+        console.log('Connected to postgres database for PUT.')
+    })
+    .catch((err)=>{
+        console.log(`Connection error: ${err.stack}`)
+})
+
+client.put('/:index',(req,res) =>{
+    let query = `UPDATE tnotesapi1.tearecords
+                `
+
+});
+
+
+
 
 router.update()

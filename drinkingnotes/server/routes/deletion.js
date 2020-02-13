@@ -26,6 +26,7 @@ client.connect()
 
 router.delete('/:index',(req,res)=>{
     var item = req.params.index;
+    console.log(typeof(item))
     console.log(`req.params.index is ${req.params.index}`)
   
     
@@ -36,7 +37,8 @@ router.delete('/:index',(req,res)=>{
 
     client.query(deletion, (res,err)=>{
         if(err){
-            console.error(`Record Query error, ${err.stack}`)
+            console.log(err)
+            console.log(err.stack)
             
         }else{
             console.log('Item has been deleted from dB')
